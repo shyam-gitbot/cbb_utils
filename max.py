@@ -12,18 +12,21 @@ for line in file :
 
     for s in lines:
         line_nums.append(float(s))
+
+    curr_col=1
     curr_max= line_nums[0]
 
     for i in line_nums:
         col+=1
         if curr_max < i:
             curr_max = i
-            mCol = col 
+            curr_col = col
     
 
     if global_maxx < curr_max:
         global_maxx = curr_max
         mRow = row
+        mCol =curr_col
 
 print(mRow, mCol,  global_maxx)
 
