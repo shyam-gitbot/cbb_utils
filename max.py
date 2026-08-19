@@ -1,32 +1,25 @@
 import sys
 file = sys.stdin # input
-row=0
-mRow, mCol = 0,0
+row,mRow, mCol,global_maxx = 0,0,0,float('-inf')
 
-global_maxx = 0
 for line in file :
     col =0
     row +=1
     lines = line.split("\t")
-    line_nums = [] 
-
-    for s in lines:
-        line_nums.append(float(s))
 
     curr_col=1
-    curr_max= line_nums[0]
+    curr_max= float(lines[0])
 
-    for i in line_nums:
+    for i in lines:
         col+=1
-        if curr_max < i:
-            curr_max = i
+        if curr_max < float(i):
+            curr_max = float(i)
             curr_col = col
-    
 
     if global_maxx < curr_max:
         global_maxx = curr_max
         mRow = row
-        mCol =curr_col
+        mCol = curr_col
 
 print(mRow, mCol,  global_maxx)
 
